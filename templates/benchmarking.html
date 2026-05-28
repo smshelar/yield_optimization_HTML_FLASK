@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">Cross Plant Benchmarking</h1>
+
+<div class="table-card">
+
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+
+</div>
+
+{% endblock %}

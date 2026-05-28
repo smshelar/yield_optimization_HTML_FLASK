@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">AI Recommendation Center</h1>
+
+<div class="row">
+
+{% for row in data %}
+
+<div class="col-md-6 mb-4">
+
+    <div class="recommendation-card">
+
+        <h4>{{ row.plant_id }}</h4>
+
+        <p><strong>Predicted Yield:</strong> {{ row.predicted_yield }}%</p>
+
+        <p><strong>Current Yield:</strong> {{ row.yield_percentage }}%</p>
+
+        <h5>Recommendations</h5>
+
+        <ul>
+            {% for rec in row.recommendations %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

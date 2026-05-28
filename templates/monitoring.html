@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">Process Monitoring</h1>
+
+<div class="chart-card">
+    <div id="sensorchart"></div>
+</div>
+
+<script>
+
+    var sensorGraphs = JSON.parse('{{ sensor_graphJSON | safe }}');
+    Plotly.newPlot(
+        'sensorchart',
+        sensorGraphs.data,
+        sensorGraphs.layout
+    );
+
+</script>
+
+{% endblock %}

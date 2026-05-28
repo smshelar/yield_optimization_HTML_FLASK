@@ -1,0 +1,110 @@
+body {
+    margin: 0;
+    background-color: #0B132B;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    background-color: #1C2541;
+    padding: 25px;
+}
+
+.logo {
+    color: #00D9FF;
+    margin-bottom: 40px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00D9FF;
+}
+
+.main-content {
+    margin-left: 280px;
+    padding: 30px;
+}
+
+.page-title {
+    margin-bottom: 30px;
+    color: #00D9FF;
+}
+
+.kpi-card {
+    background-color: #1C2541;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px);
+}
+
+.kpi-card h1 {
+    color: #00D9FF;
+}
+
+.chart-card {
+    background-color: #1C2541;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    min-height: 450px;
+}
+
+.table-card {
+    background-color: #1C2541;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.recommendation-card {
+    background-color: #1C2541;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.recommendation-card h4 {
+    color: #00D9FF;
+}
+
+.status-card {
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.healthy {
+    background: linear-gradient(135deg, #00b894, #00cec9);
+}
+
+.warning {
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
+}
+
+.critical {
+    background: linear-gradient(135deg, #d63031, #e84393);
+}

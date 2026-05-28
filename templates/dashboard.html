@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">Executive Dashboard</h1>
+
+<div class="row g-4 mb-4">
+
+    <div class="col-md-3">
+        <div class="kpi-card">
+            <h5>Average Yield</h5>
+            <h1>{{ avg_yield }}%</h1>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="kpi-card">
+            <h5>Scrap Rate</h5>
+            <h1>{{ avg_scrap }}%</h1>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="kpi-card">
+            <h5>Quality Score</h5>
+            <h1>{{ avg_quality }}</h1>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="kpi-card">
+            <h5>Energy Consumption</h5>
+            <h1>{{ avg_energy }}</h1>
+        </div>
+    </div>
+
+</div>
+
+<div class="row mb-4">
+
+    <div class="col-md-4">
+        <div class="status-card healthy">
+            <h5>Machine Health</h5>
+            <h2>98%</h2>
+            <p>Operational Stability</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="status-card warning">
+            <h5>Humidity Risk</h5>
+            <h2>Moderate</h2>
+            <p>Plant B Above Threshold</p>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="status-card critical">
+            <h5>Downtime Alert</h5>
+            <h2>12 mins</h2>
+            <p>Line 3 Maintenance Needed</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="chart-card mb-5">
+    <div id="gaugechart" style="height:400px;"></div>
+</div>
+
+
+<div class="chart-card mb-5">
+    <div id="linechart" style="height:400px;"></div>
+</div>
+
+<div class="chart-card">
+    <div id="barchart" style="height:400px;"></div>
+</div>
+
+<div class="chart-card">
+    <div id="heatmap" style="height:500px;"></div>
+</div>
+
+<div class="chart-card">
+
+    <h3>Live Manufacturing Alerts</h3>
+
+    <div class="alert alert-warning mt-4">
+        High humidity detected in Plant B
+    </div>
+
+    <div class="alert alert-danger">
+        Vibration spike detected on Line 3
+    </div>
+
+    <div class="alert alert-info">
+        AI recommends reducing pressure by 3%
+    </div>
+
+</div>
+
+<script>
+
+    var gaugeGraphs = JSON.parse('{{ gauge_graphJSON | safe }}');
+    Plotly.newPlot(
+    'gaugechart',
+    gaugeGraphs.data,
+    gaugeGraphs.layout
+    );
+
+    var lineGraphs = JSON.parse('{{ line_graphJSON | safe }}');
+    Plotly.newPlot(
+        'linechart',
+        lineGraphs.data,
+        lineGraphs.layout
+    );
+
+    var barGraphs = JSON.parse('{{ bar_graphJSON | safe }}');
+    Plotly.newPlot(
+        'barchart',
+        barGraphs.data,
+        barGraphs.layout
+    );
+
+    var heatmapGraphs = JSON.parse('{{ heatmapJSON | safe }}');
+    Plotly.newPlot(
+        'heatmap',
+        heatmapGraphs.data,
+        heatmapGraphs.layout
+    );
+
+<div class="row mb-4">
+
+    <div class="col-md-4">
+        <div class="status-card healthy">
+            <h5>Machine Health</h5>
+            <h2>Healthy</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="status-card warning">
+            <h5>Humidity Status</h5>
+            <h2>Warning</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="status-card critical">
+            <h5>Downtime Alert</h5>
+            <h2>Critical</h2>
+        </div>
+    </div>
+
+</div>
+
+</script>
+
+{% endblock %}
+
+
+
